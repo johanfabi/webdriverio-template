@@ -1,5 +1,4 @@
-# template-latam-webdriverio
-***
+# Template LATAM WebDriverIO
 
 ## Packages Install
 Command: npm install
