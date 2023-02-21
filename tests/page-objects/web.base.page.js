@@ -9,7 +9,7 @@ export default class Page {
     */
     open () {
         browser.maximizeWindow()
-        return browser.url('https://www.latam.com/')
+        return browser.url('https://www.latamairlines.com/us/es')
     }
 
     /**
