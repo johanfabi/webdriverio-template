@@ -79,7 +79,7 @@ export const config = {
             'bstack:options': {
                 browserVersion: '103.0',
                 os: 'Windows',
-                osVersion: '11',
+                osVersion: '10',
                 buildName: 'JavaScript Test Delivery',
                 projectName: 'FUTEDE - Functional Testing Delivery',
                 sessionName: 'TestCycle',
