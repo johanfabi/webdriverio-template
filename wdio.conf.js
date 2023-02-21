@@ -153,7 +153,6 @@ export const config = {
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
         require:[
-            './tests/step-definitions/login.steps.js',
             './tests/step-definitions/latam.steps.js'
         ],
 

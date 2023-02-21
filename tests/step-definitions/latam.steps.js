@@ -16,5 +16,6 @@ When(/^I search for a flight from (.+) to (.+) on (.+) to (.+)$/, async (origin,
 
 Then(/^I should see the results page (.+)$/, async (message) => {
     await latamPage.searchFlightMessage(message)
+    await browser.pause(5000)
 });
 
