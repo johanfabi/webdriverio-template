@@ -14,7 +14,7 @@ pipeline {
                 print('Run Functional Tests - ' + 'Case: ' + env.TAGS)
                 print('========================================================================================================')
                 sh '''
-                    npm run local -- --cucumberOpts.tagExpression="$TAGS"
+                    npm run browserstack -- --cucumberOpts.tagExpression="$TAGS"
                 '''
             }
         }
