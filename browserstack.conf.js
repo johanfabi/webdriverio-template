@@ -87,7 +87,6 @@ export const config = {
                 debug: 'true',
                 consoleLogs: 'info',
                 networkLogs: 'true',
-                server: "https://kimberlyvergarab_bi5jRh:GpWavh9zupR3xZZjJWAq@hub-cloud.browserstack.com/wd/hub"
             }
         }
     ],
