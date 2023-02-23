@@ -60,10 +60,14 @@ export default class LatamPage extends Page {
   get btnContinuar(){
     return $("#country-lang-selector-continue-button")
   }
+  get btnCloseModal () {
+    return $("//span[@class='MuiIconButton-label']//i[@class='sc-htpNat ktPDRh']//*[name()='svg']")
+}
   /**
    * Methods to interact with the LATAM airlines website
    */
   async selectLanguage (){
+    await this.btnCloseModal.click();
     await this.btnModal.click();
     await this.inputPais.click();
     await this.selectPais.click();
