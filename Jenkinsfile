@@ -5,6 +5,10 @@ pipeline {
     stages {
         stage('Test') {
             steps {
+                  withCredentials([
+                        usernamePassword(credentialsId: 'browserstack-credentials',usernameVariable: 'BROWSERSTACK_USERNAME',passwordVariable: 'BROWSERSTACK_ACCESS_KEY')
+
+                ])
                 sh 'node --version'
                 print('========================================================================================================')
                 print('Modules Install')
