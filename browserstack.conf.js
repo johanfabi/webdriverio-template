@@ -79,7 +79,7 @@ export const config = {
             'bstack:options': {
                 browserVersion: '103.0',
                 os: 'Windows',
-                osVersion: '11',
+                osVersion: '10',
                 buildName: 'JavaScript Test Delivery',
                 projectName: 'FUTEDE - Functional Testing Delivery',
                 sessionName: 'TestCycle',
@@ -177,7 +177,9 @@ export const config = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./tests/step-definitions/login.steps.js'],
+        require:[
+            './tests/step-definitions/latam.steps.js'
+        ],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
