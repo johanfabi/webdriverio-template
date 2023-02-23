@@ -7,8 +7,8 @@ export const config = {
     // Set your BrowserStack credentials in the system environment variables
     // export BROWSERSTACK_USERNAME = 'your_username'
     // export BROWSERSTACK_ACCESS_KEY = 'your_access_key'
-    user: process.env.BROWSERSTACK_USERNAME,
-    key: process.env.BROWSERSTACK_ACCESS_KEY,
+    user: kimberlyvergarab_bi5jRh,
+    key: GpWavh9zupR3xZZjJWAq,
     hostname: 'hub.browserstack.com',
     logLevel: 'warn',
     coloredLogs: true,
@@ -87,6 +87,7 @@ export const config = {
                 debug: 'true',
                 consoleLogs: 'info',
                 networkLogs: 'true',
+        server: "https://kimberlyvergarab_bi5jRh:GpWavh9zupR3xZZjJWAq@hub-cloud.browserstack.com/wd/hub"
             }
         }
     ],
