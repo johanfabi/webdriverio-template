@@ -19,7 +19,8 @@ pipeline {
                 sh '''
                     npm run browserstack -- --cucumberOpts.tagExpression="$TAGS"
                 '''
-            }}
+            }
+             browserStackReportPublisher 'automate'}
         }
     }
 }
