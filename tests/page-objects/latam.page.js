@@ -45,7 +45,7 @@ export default class LatamPage extends Page {
   }
 
   get btnModal () {
-    return $("#header__currentCurrency")
+    return $("//span[@class='sc-hSdWYo kIvFiE']")
   }
 
   get inputPais(){
@@ -67,7 +67,7 @@ export default class LatamPage extends Page {
    * Methods to interact with the LATAM airlines website
    */
   async selectLanguage (){
-    await this.btnCloseModal.click();
+   // await this.btnCloseModal.click();
     await this.btnModal.click();
     await this.inputPais.click();
     await this.selectPais.click();
