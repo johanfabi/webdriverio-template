@@ -73,7 +73,7 @@ export default class LatamPage extends Page {
     await this.selectPais.click();
     await this.btnLenguage.click();
     await this.btnContinuar.click();
-    await browser.pause(5000)
+    await browser.pause(3000)
     await this.btnCloseModal.click();
   }
 
@@ -100,6 +100,8 @@ export default class LatamPage extends Page {
         " como fecha de vuelta. Está disponible.']"
     ).click();
     await this.btnSearch.click();
+    await browser.pause(3000)
+    await this.btnCloseModal.click();
   }
 
   /**
