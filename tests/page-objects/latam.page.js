@@ -45,7 +45,7 @@ export default class LatamPage extends Page {
   }
 
   get btnModal () {
-    return $("//span[@class='sc-hSdWYo kIvFiE']")
+    return $("#header__currentCurrency")
   }
 
   get inputPais(){
