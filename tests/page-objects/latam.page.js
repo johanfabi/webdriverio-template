@@ -67,12 +67,14 @@ export default class LatamPage extends Page {
    * Methods to interact with the LATAM airlines website
    */
   async selectLanguage (){
-   // await this.btnCloseModal.click();
+ 
     await this.btnModal.click();
     await this.inputPais.click();
     await this.selectPais.click();
     await this.btnLenguage.click();
     await this.btnContinuar.click();
+    await browser.pause(5000)
+    await this.btnCloseModal.click();
   }
 
 
