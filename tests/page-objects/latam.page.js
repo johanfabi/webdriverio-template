@@ -67,14 +67,15 @@ export default class LatamPage extends Page {
    * Methods to interact with the LATAM airlines website
    */
   async selectLanguage (){
- 
-    await this.btnModal.click();
-    //await this.inputPais.click();
-    //await this.selectPais.click();
-    await this.btnLenguage.click();
-    await this.btnContinuar.click();
-    await browser.pause(3000)
-    //await this.btnCloseModal.click();
+    await browser.pause(10000);
+    let languageModalDisplayed = await this.btnModal.isDisplayed();
+    if(languageModalDisplayed) {
+      await this.btnModal.click();
+      await browser.pause(5000);
+      await this.btnLenguage.click();
+      await this.btnContinuar.click();
+    }
+    await browser.pause(10000)
   }
 
 
@@ -85,9 +86,15 @@ export default class LatamPage extends Page {
   async searchFlight(origin, destination, departureDate, returnDate) {
     await this.btnFlight.click();
     await this.inputOrigin.setValue(origin);
+
     await this.selectOrigin.click();
+    await browser.pause(3000)
+
     await this.inputDestination.setValue(destination);
+
+    await browser.pause(3000)
     await this.selectDestination.click();
+    await browser.pause(5000)
     await this.departureDate.click();
     await $(
       "td[aria-label='Elija " +
@@ -96,11 +103,11 @@ export default class LatamPage extends Page {
     ).click();
     await this.returnDate.click();
     await $(
-      "td[aria-label='Elija " +returnDate+
+      "td[aria-label='Elija " + returnDate +
         " como fecha de vuelta. Está disponible.']"
     ).click();
+    await browser.pause(5000)
     await this.btnSearch.click();
-  
   }
 
   /**

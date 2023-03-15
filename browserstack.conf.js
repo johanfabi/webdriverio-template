@@ -91,13 +91,20 @@ export const config = {
         }
     ],
 
+    //
+    // ===================
+    // Jira information
+    // ===================
+    // Define all parameters needed to send report to Jira
+    runningOn: 'browserstack',
+
     // ===================
     // Test Configurations
     // ===================
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    // logLevel: 'info',
 
     //
     // Set specific log levels per logger
@@ -127,16 +134,16 @@ export const config = {
 
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    // waitforTimeout: 10000,
 
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
-    connectionRetryTimeout: 120000,
+    // connectionRetryTimeout: 120000,
 
     //
     // Default request retries count
-    connectionRetryCount: 3,
+    // connectionRetryCount: 3,
 
     //
     // Test runner services
@@ -195,7 +202,7 @@ export const config = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        tagExpression: '',
+        // tagExpression: '',
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
@@ -256,8 +263,9 @@ export const config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        process.env.RUNNING_ON = this.runningOn;
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
@@ -302,8 +310,9 @@ export const config = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {Object}             context          Cucumber World object
      */
-    // afterStep: function (step, scenario, result, context) {
-    // },
+    afterStep: function (step, scenario, result, context) {
+        process.env.TEST_STATUS = result.passed;
+    },
     /**
      *
      * Runs after a Cucumber Scenario.

@@ -72,6 +72,20 @@ export const config = {
 
     //
     // ===================
+    // Jira information
+    // ===================
+    // Define all parameters needed to send report to Jira
+    jiraReporter: {
+        browser: 'Chrome',
+        browserVersion: 'latest',
+        os: 'Windows',
+        osVersion: '10'
+    },
+
+    runningOn: 'local',
+
+    //
+    // ===================
     // Test Configurations
     // ===================
     // Define all options that are relevant for the WebdriverIO instance here
@@ -172,13 +186,13 @@ export const config = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        tagExpression: '',
+        // tagExpression: '',
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false,
         // Cucumber tests cases tags 
-        tagExpression: '@Test3'
+        tagExpression: '@Test1'
     },
     
     //
@@ -233,8 +247,14 @@ export const config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        // SET ENVIRONMENT VARIABLES
+        process.env.BROWSER_NAME = this.jiraReporter.browser;
+        process.env.BROWSER_VERSION = this.jiraReporter.browserVersion;
+        process.env.OS = this.jiraReporter.os;
+        process.env.OS_VERSION = this.jiraReporter.osVersion;
+        process.env.RUNNING_ON = this.runningOn;
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
@@ -279,8 +299,9 @@ export const config = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {Object}             context          Cucumber World object
      */
-    // afterStep: function (step, scenario, result, context) {
-    // },
+    afterStep: function (step, scenario, result, context) {
+        process.env.TEST_STATUS = result.passed;
+    },
     /**
      *
      * Runs after a Cucumber Scenario.
@@ -291,8 +312,9 @@ export const config = {
      * @param {number}                 result.duration  duration of scenario in milliseconds
      * @param {Object}                 context          Cucumber World object
      */
-    // afterScenario: function (world, result, context) {
-    // },
+    //afterScenario: function (world, result, context) {
+        
+    //},
     /**
      *
      * Runs after a Cucumber Feature.
@@ -319,7 +341,8 @@ export const config = {
      * @param {Array.<String>} specs List of spec file paths that ran
      */
     // after: function (result, capabilities, specs) {
-    // },
+        
+    //},
     /**
      * Gets executed right after terminating the webdriver session.
      * @param {Object} config wdio configuration object
