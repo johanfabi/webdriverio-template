@@ -4,7 +4,7 @@ Feature: Tests Automations for Website LATAM Airlines
     Scenario: Search flights
 
         Given I am on the LATAM Airlines website
-        When Selecting the Spanish language
+        When Select spanish language
         Then I search for a flight from <origin> to <destination> on <departureDate> to <returnDate>
         Then I should see the results page <message>
 
